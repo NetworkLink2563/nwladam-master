@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCFE5D2B-1FF9-41BF-AB75-B3F74FD7EB65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NWL_AdAm_DML</RootNamespace>
+    <AssemblyName>NWL_AdAm_DML</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="X.PagedList, Version=7.9.0.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.7.9.0\lib\net461\X.PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList.Mvc, Version=7.9.1.0, Culture=neutral, PublicKeyToken=c6e0b5b21f916f4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.Mvc.7.9.1\lib\net461\X.PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList.Web.Common, Version=7.9.1.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.Web.Common.7.9.1\lib\net461\X.PagedList.Web.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\SessionModel.cs" />
+    <Compile Include="NWL_AdAM_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWL_AdAM_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NWL_AdAM_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NWL_AdAM_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWL_AdAM_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="STP_NWLShowEMMStatus_Result.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STP_NWLShowJobStatus_Result.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STP_NWLShowOnOffStatus_Result.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TDocTJob.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TMstMController.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TMstMCustomer.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TMstMLamp.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TMstMProject.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TMstMUser.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSysSConfig.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSysSDistrict.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSysSProvince.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSysSSubDistrict.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TTrnTLampUpdate.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TTrnTWarning.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddressViewModel.cs" />
+    <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\DeviceViewModel.cs" />
+    <Compile Include="ViewModel\Extended\TDocTJobExtModel.cs" />
+    <Compile Include="ViewModel\Extended\TMstMControllerExtModel.cs" />
+    <Compile Include="ViewModel\Extended\TMstMLampExtModel.cs" />
+    <Compile Include="ViewModel\Extended\TMstMProjectExtModel.cs" />
+    <Compile Include="ViewModel\FetchRespModel.cs" />
+    <Compile Include="ViewModel\JobViewModel.cs" />
+    <Compile Include="ViewModel\LampStatusViewModel.cs" />
+    <Compile Include="ViewModel\LampViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MapsViewModel.cs" />
+    <Compile Include="ViewModel\ProjectViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="V_LampStatus.cs">
+      <DependentUpon>NWL_AdAM_Model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NWL_AdAm_SPL\NWL_AdAm_SPL.csproj">
+      <Project>{3c663aa3-5745-49c1-ae18-560404de5e54}</Project>
+      <Name>NWL_AdAm_SPL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="NWL_AdAM_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NWL_AdAM_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="NWL_AdAM_Model.edmx.diagram">
+      <DependentUpon>NWL_AdAM_Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NWL_AdAM_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NWL_AdAM_Model.Context.cs</LastGenOutput>
+      <DependentUpon>NWL_AdAM_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="NWL_AdAM_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NWL_AdAM_Model.edmx</DependentUpon>
+      <LastGenOutput>NWL_AdAM_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

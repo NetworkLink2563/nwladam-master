@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdAmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TDocTJob">
+          <Key>
+            <PropertyRef Name="XVJobDocNo" />
+          </Key>
+          <Property Name="XVJobDocNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XDJobDocDate" Type="date" />
+          <Property Name="XVJobDocStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="XVCstCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVPrjCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVCtlCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVLmpCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVJobProblem" Type="nvarchar" MaxLength="500" />
+          <Property Name="XVJobLocation" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTJobProblemTime" Type="datetime" />
+          <Property Name="XVJobResolve" Type="nvarchar" MaxLength="500" />
+          <Property Name="XTJobResolveTime" Type="datetime" />
+          <Property Name="XBJobIsComplete" Type="bit" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TMstMController">
+          <Key>
+            <PropertyRef Name="XVCtlCode" />
+          </Key>
+          <Property Name="XVCtlCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVCtlName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVCtlDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="XVCtlSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVPrjCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVCtlLat" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVCtlLong" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVCtlPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="XICtlLampQty" Type="int" />
+          <Property Name="XFCtlAmpMin" Type="float" />
+          <Property Name="XFCtlAmpMax" Type="float" />
+          <Property Name="XVBoxNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVBoxKmFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVBoxKmTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TMstMCustomer">
+          <Key>
+            <PropertyRef Name="XVCstCode" />
+          </Key>
+          <Property Name="XVCstCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVCstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVCstAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="XVCstPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVCstEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TMstMLamp">
+          <Key>
+            <PropertyRef Name="XVLmpCode" />
+          </Key>
+          <Property Name="XVLmpCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVLmpName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVLmpDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="XVLmpSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVCtlCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVLmpLat" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVLmpLong" Type="nvarchar" MaxLength="20" />
+          <Property Name="XBLmpIsWarning" Type="bit" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TMstMProject">
+          <Key>
+            <PropertyRef Name="XVPrjCode" />
+          </Key>
+          <Property Name="XVPrjCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVPrjName" Type="nvarchar" MaxLength="200" />
+          <Property Name="XVPrjAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="XVPrjType" Type="nvarchar" MaxLength="1" />
+          <Property Name="XVCstCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVSdtCode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="XVPrjLineToken1" Type="nvarchar" MaxLength="200" />
+          <Property Name="XVPrjLineToken2" Type="nvarchar" MaxLength="200" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TMstMUser">
+          <Key>
+            <PropertyRef Name="XVUsrCode" />
+          </Key>
+          <Property Name="XVUsrCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVUsrPwd" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVUsrName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVCstCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVCstRol" Type="nvarchar" MaxLength="1" />
+          <Property Name="XVWhoCreate" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVWhoEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="XTWhenCreate" Type="datetime" />
+          <Property Name="XTWhenEdit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TSysSConfig">
+          <Key>
+            <PropertyRef Name="XVSysCode" />
+          </Key>
+          <Property Name="XVSysCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="XVSysName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVSysValue" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TSysSDistrict">
+          <Key>
+            <PropertyRef Name="XVDstCode" />
+          </Key>
+          <Property Name="XVDstCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="XVDstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVDstNameEng" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVDstNameWithPrefix" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVDstNameEngWithPrefix" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVPvnCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TSysSProvince">
+          <Key>
+            <PropertyRef Name="XVPvnCode" />
+          </Key>
+          <Property Name="XVPvnCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="XVPvnName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVPvnNameEng" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TSysSSubDistrict">
+          <Key>
+            <PropertyRef Name="XVSdtCode" />
+          </Key>
+          <Property Name="XVSdtCode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="XVSdtName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVSdtNameEng" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVSdtNameWithPrefix" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVSdtNameEngWithPrefix" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVSdtPostCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="XVDstCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TTrnTLampUpdate">
+          <Key>
+            <PropertyRef Name="XIID" />
+          </Key>
+          <Property Name="XIID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="XVLmpCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XTStaUpdate" Type="datetime" />
+          <Property Name="XIStaRelay" Type="int" />
+          <Property Name="XIStaPWM1" Type="int" />
+          <Property Name="XIStaPWM2" Type="int" />
+          <Property Name="XIStaSignal" Type="int" />
+          <Property Name="XIStaCurrent" Type="int" />
+          <Property Name="XIStaAmLight" Type="int" />
+          <Property Name="XIStaMode" Type="int" />
+        </EntityType>
+        <EntityType Name="TTrnTWarning">
+          <Key>
+            <PropertyRef Name="XIID" />
+          </Key>
+          <Property Name="XIID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="XVLmpCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVWanType" Type="nvarchar" MaxLength="1" />
+          <Property Name="XTWanTime" Type="datetime" />
+          <Property Name="XVWanValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="XBWanIsNotify" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AdAM.dbo.V_LampStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_LampStatus">
+          <Key>
+            <PropertyRef Name="XVCstCode" />
+            <PropertyRef Name="XVPrjCode" />
+            <PropertyRef Name="XVCtlCode" />
+            <PropertyRef Name="XVLmpCode" />
+          </Key>
+          <Property Name="XVCstCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVCstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVPrjCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVPrjName" Type="nvarchar" MaxLength="200" />
+          <Property Name="XVPrjType" Type="nvarchar" MaxLength="1" />
+          <Property Name="XVCtlCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVCtlName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVCtlSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVCtlLat" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVCtlLong" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVLmpCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XVLmpName" Type="nvarchar" MaxLength="100" />
+          <Property Name="XVLmpSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="XVLmpLat" Type="nvarchar" MaxLength="20" />
+          <Property Name="XVLmpLong" Type="nvarchar" MaxLength="20" />
+          <Property Name="XTStaUpdate" Type="datetime" />
+          <Property Name="XIStaRelay" Type="int" />
+          <Property Name="XIStaPWM1" Type="int" />
+          <Property Name="XIStaPWM2" Type="int" />
+          <Property Name="XIStaSignal" Type="int" />
+          <Property Name="XIStaCurrent" Type="int" />
+          <Property Name="XIStaAmLight" Type="int" />
+          <Property Name="XIStaMode" Type="int" />
+        </EntityType>
+        <Function Name="STP_NWLShowEMMStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ptCstCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="ptPrjCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="STP_NWLShowJobStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ptCstCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="ptPrjCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="STP_NWLShowOnOffStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ptCstCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="ptPrjCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AdAmModelStoreContainer">
+          <EntitySet Name="TDocTJob" EntityType="Self.TDocTJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMstMController" EntityType="Self.TMstMController" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMstMCustomer" EntityType="Self.TMstMCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMstMLamp" EntityType="Self.TMstMLamp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMstMProject" EntityType="Self.TMstMProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMstMUser" EntityType="Self.TMstMUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSysSConfig" EntityType="Self.TSysSConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSysSDistrict" EntityType="Self.TSysSDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSysSProvince" EntityType="Self.TSysSProvince" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSysSSubDistrict" EntityType="Self.TSysSSubDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TTrnTLampUpdate" EntityType="Self.TTrnTLampUpdate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TTrnTWarning" EntityType="Self.TTrnTWarning" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_LampStatus" EntityType="Self.V_LampStatus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_LampStatus].[XVCstCode] AS [XVCstCode], 
+    [V_LampStatus].[XVCstName] AS [XVCstName], 
+    [V_LampStatus].[XVPrjCode] AS [XVPrjCode], 
+    [V_LampStatus].[XVPrjName] AS [XVPrjName], 
+    [V_LampStatus].[XVPrjType] AS [XVPrjType], 
+    [V_LampStatus].[XVCtlCode] AS [XVCtlCode], 
+    [V_LampStatus].[XVCtlName] AS [XVCtlName], 
+    [V_LampStatus].[XVCtlSN] AS [XVCtlSN], 
+    [V_LampStatus].[XVCtlLat] AS [XVCtlLat], 
+    [V_LampStatus].[XVCtlLong] AS [XVCtlLong], 
+    [V_LampStatus].[XVLmpCode] AS [XVLmpCode], 
+    [V_LampStatus].[XVLmpName] AS [XVLmpName], 
+    [V_LampStatus].[XVLmpSN] AS [XVLmpSN], 
+    [V_LampStatus].[XVLmpLat] AS [XVLmpLat], 
+    [V_LampStatus].[XVLmpLong] AS [XVLmpLong], 
+    [V_LampStatus].[XTStaUpdate] AS [XTStaUpdate], 
+    [V_LampStatus].[XIStaRelay] AS [XIStaRelay], 
+    [V_LampStatus].[XIStaPWM1] AS [XIStaPWM1], 
+    [V_LampStatus].[XIStaPWM2] AS [XIStaPWM2], 
+    [V_LampStatus].[XIStaSignal] AS [XIStaSignal], 
+    [V_LampStatus].[XIStaCurrent] AS [XIStaCurrent], 
+    [V_LampStatus].[XIStaAmLight] AS [XIStaAmLight], 
+    [V_LampStatus].[XIStaMode] AS [XIStaMode]
+    FROM [dbo].[V_LampStatus] AS [V_LampStatus]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdAmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TMstMController">
+          <Key>
+            <PropertyRef Name="XVCtlCode" />
+          </Key>
+          <Property Name="XVCtlCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVCtlName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVCtlLat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlLong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+          <Property Name="XVCtlPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="XICtlLampQty" Type="Int32" />
+          <Property Name="XFCtlAmpMin" Type="Double" />
+          <Property Name="XFCtlAmpMax" Type="Double" />
+          <Property Name="XVBoxNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVBoxKmFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVBoxKmTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TMstMCustomer">
+          <Key>
+            <PropertyRef Name="XVCstCode" />
+          </Key>
+          <Property Name="XVCstCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVCstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TMstMLamp">
+          <Key>
+            <PropertyRef Name="XVLmpCode" />
+          </Key>
+          <Property Name="XVLmpCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVLmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVLmpLat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpLong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+          <Property Name="XBLmpIsWarning" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TMstMProject">
+          <Key>
+            <PropertyRef Name="XVPrjCode" />
+          </Key>
+          <Property Name="XVPrjCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVPrjName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVSdtCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVPrjLineToken1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjLineToken2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TMstMUser">
+          <Key>
+            <PropertyRef Name="XVUsrCode" />
+          </Key>
+          <Property Name="XVUsrCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVUsrPwd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVUsrName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstRol" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TSysSDistrict">
+          <Key>
+            <PropertyRef Name="XVDstCode" />
+          </Key>
+          <Property Name="XVDstCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVDstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVDstNameEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVDstNameWithPrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVDstNameEngWithPrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVPvnCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TSysSProvince">
+          <Key>
+            <PropertyRef Name="XVPvnCode" />
+          </Key>
+          <Property Name="XVPvnCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVPvnName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVPvnNameEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TSysSSubDistrict">
+          <Key>
+            <PropertyRef Name="XVSdtCode" />
+          </Key>
+          <Property Name="XVSdtCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XVSdtName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVSdtNameEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVSdtNameWithPrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVSdtNameEngWithPrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVSdtPostCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="XVDstCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AdAmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TMstMController" EntityType="Self.TMstMController" />
+          <EntitySet Name="TMstMCustomer" EntityType="Self.TMstMCustomer" />
+          <EntitySet Name="TMstMLamp" EntityType="Self.TMstMLamp" />
+          <EntitySet Name="TMstMProject" EntityType="Self.TMstMProject" />
+          <EntitySet Name="TMstMUser" EntityType="Self.TMstMUser" />
+          <EntitySet Name="TSysSDistrict" EntityType="Self.TSysSDistrict" />
+          <EntitySet Name="TSysSProvince" EntityType="Self.TSysSProvince" />
+          <EntitySet Name="TSysSSubDistrict" EntityType="Self.TSysSSubDistrict" />
+          <EntitySet Name="TSysSConfig" EntityType="AdAmModel.TSysSConfig" />
+          <EntitySet Name="TTrnTLampUpdate" EntityType="AdAmModel.TTrnTLampUpdate" />
+          <EntitySet Name="TTrnTWarning" EntityType="AdAmModel.TTrnTWarning" />
+          <EntitySet Name="V_LampStatus" EntityType="AdAmModel.V_LampStatus" />
+          <EntitySet Name="TDocTJob" EntityType="AdAmModel.TDocTJob" />
+          <FunctionImport Name="STP_NWLShowJobStatus" ReturnType="Collection(AdAmModel.STP_NWLShowJobStatus_Result)">
+            <Parameter Name="ptCstCode" Mode="In" Type="String" />
+            <Parameter Name="ptPrjCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="STP_NWLShowOnOffStatus" ReturnType="Collection(AdAmModel.STP_NWLShowOnOffStatus_Result)">
+            <Parameter Name="ptCstCode" Mode="In" Type="String" />
+            <Parameter Name="ptPrjCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="STP_NWLShowEMMStatus" ReturnType="Collection(AdAmModel.STP_NWLShowEMMStatus_Result)">
+            <Parameter Name="ptCstCode" Mode="In" Type="String" />
+            <Parameter Name="ptPrjCode" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="TSysSConfig">
+          <Key>
+            <PropertyRef Name="XVSysCode" />
+          </Key>
+          <Property Name="XVSysCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="XVSysName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVSysValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TTrnTLampUpdate">
+          <Key>
+            <PropertyRef Name="XIID" />
+          </Key>
+          <Property Name="XIID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="XVLmpCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XTStaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="XIStaRelay" Type="Int32" />
+          <Property Name="XIStaPWM1" Type="Int32" />
+          <Property Name="XIStaPWM2" Type="Int32" />
+          <Property Name="XIStaSignal" Type="Int32" />
+          <Property Name="XIStaCurrent" Type="Int32" />
+          <Property Name="XIStaAmLight" Type="Int32" />
+          <Property Name="XIStaMode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TTrnTWarning">
+          <Key>
+            <PropertyRef Name="XIID" />
+          </Key>
+          <Property Name="XIID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="XVLmpCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVWanType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="XTWanTime" Type="DateTime" Precision="3" />
+          <Property Name="XVWanValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XBWanIsNotify" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_LampStatus">
+          <Key>
+            <PropertyRef Name="XVCstCode" />
+            <PropertyRef Name="XVPrjCode" />
+            <PropertyRef Name="XVCtlCode" />
+            <PropertyRef Name="XVLmpCode" />
+          </Key>
+          <Property Name="XVCstCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlLat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlLong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpLat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpLong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XTStaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="XIStaRelay" Type="Int32" />
+          <Property Name="XIStaPWM1" Type="Int32" />
+          <Property Name="XIStaPWM2" Type="Int32" />
+          <Property Name="XIStaSignal" Type="Int32" />
+          <Property Name="XIStaCurrent" Type="Int32" />
+          <Property Name="XIStaAmLight" Type="Int32" />
+          <Property Name="XIStaMode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TDocTJob">
+          <Key>
+            <PropertyRef Name="XVJobDocNo" />
+          </Key>
+          <Property Name="XVJobDocNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XDJobDocDate" Type="DateTime" Precision="0" />
+          <Property Name="XVJobDocStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="XVCstCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVPrjCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVCtlCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVLmpCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XVJobProblem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="XVJobLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTJobProblemTime" Type="DateTime" Precision="3" />
+          <Property Name="XVJobResolve" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="XTJobResolveTime" Type="DateTime" Precision="3" />
+          <Property Name="XBJobIsComplete" Type="Boolean" />
+          <Property Name="XVWhoCreate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XVWhoEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XTWhenCreate" Type="DateTime" Precision="3" />
+          <Property Name="XTWhenEdit" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="STP_NWLShowJobStatus_Result">
+          <Property Type="String" Name="XVPrjCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="XVPrjName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="XIJobComplete" Nullable="false" />
+          <Property Type="Int32" Name="XIJobNotComplete" Nullable="false" />
+          <Property Type="Int32" Name="XIJobAll" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="STP_NWLShowOnOffStatus_Result">
+          <Property Type="String" Name="XVPrjCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="XVPrjName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="XVLmpCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="XILmpStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="STP_NWLShowEMMStatus_Result">
+          <Property Type="String" Name="XVPrjCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="XVPrjName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="XVCstCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="XVCtlCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="XVCtlSN" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="XFCstCurrent" Nullable="true" />
+          <Property Type="Double" Name="XFCstVoltage" Nullable="true" />
+          <Property Type="Double" Name="XFCstPower" Nullable="true" />
+          <Property Type="DateTime" Name="XTCstDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="XILastWait" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdAmModelStoreContainer" CdmEntityContainer="AdAmEntities">
+          <EntitySetMapping Name="TMstMController">
+            <EntityTypeMapping TypeName="AdAmModel.TMstMController">
+              <MappingFragment StoreEntitySet="TMstMController">
+                <ScalarProperty Name="XVBoxKmTo" ColumnName="XVBoxKmTo" />
+                <ScalarProperty Name="XVBoxKmFrom" ColumnName="XVBoxKmFrom" />
+                <ScalarProperty Name="XVBoxNo" ColumnName="XVBoxNo" />
+                <ScalarProperty Name="XFCtlAmpMax" ColumnName="XFCtlAmpMax" />
+                <ScalarProperty Name="XFCtlAmpMin" ColumnName="XFCtlAmpMin" />
+                <ScalarProperty Name="XICtlLampQty" ColumnName="XICtlLampQty" />
+                <ScalarProperty Name="XVCtlPhone" ColumnName="XVCtlPhone" />
+                <ScalarProperty Name="XVCtlCode" ColumnName="XVCtlCode" />
+                <ScalarProperty Name="XVCtlName" ColumnName="XVCtlName" />
+                <ScalarProperty Name="XVCtlDescription" ColumnName="XVCtlDescription" />
+                <ScalarProperty Name="XVCtlSN" ColumnName="XVCtlSN" />
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVCtlLat" ColumnName="XVCtlLat" />
+                <ScalarProperty Name="XVCtlLong" ColumnName="XVCtlLong" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMstMCustomer">
+            <EntityTypeMapping TypeName="AdAmModel.TMstMCustomer">
+              <MappingFragment StoreEntitySet="TMstMCustomer">
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+                <ScalarProperty Name="XVCstName" ColumnName="XVCstName" />
+                <ScalarProperty Name="XVCstAddress" ColumnName="XVCstAddress" />
+                <ScalarProperty Name="XVCstPhone" ColumnName="XVCstPhone" />
+                <ScalarProperty Name="XVCstEmail" ColumnName="XVCstEmail" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMstMLamp">
+            <EntityTypeMapping TypeName="AdAmModel.TMstMLamp">
+              <MappingFragment StoreEntitySet="TMstMLamp">
+                <ScalarProperty Name="XBLmpIsWarning" ColumnName="XBLmpIsWarning" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XVLmpName" ColumnName="XVLmpName" />
+                <ScalarProperty Name="XVLmpDescription" ColumnName="XVLmpDescription" />
+                <ScalarProperty Name="XVLmpSN" ColumnName="XVLmpSN" />
+                <ScalarProperty Name="XVCtlCode" ColumnName="XVCtlCode" />
+                <ScalarProperty Name="XVLmpLat" ColumnName="XVLmpLat" />
+                <ScalarProperty Name="XVLmpLong" ColumnName="XVLmpLong" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMstMProject">
+            <EntityTypeMapping TypeName="AdAmModel.TMstMProject">
+              <MappingFragment StoreEntitySet="TMstMProject">
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVPrjName" ColumnName="XVPrjName" />
+                <ScalarProperty Name="XVPrjAddress" ColumnName="XVPrjAddress" />
+                <ScalarProperty Name="XVPrjType" ColumnName="XVPrjType" />
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+                <ScalarProperty Name="XVSdtCode" ColumnName="XVSdtCode" />
+                <ScalarProperty Name="XVPrjLineToken1" ColumnName="XVPrjLineToken1" />
+                <ScalarProperty Name="XVPrjLineToken2" ColumnName="XVPrjLineToken2" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMstMUser">
+            <EntityTypeMapping TypeName="AdAmModel.TMstMUser">
+              <MappingFragment StoreEntitySet="TMstMUser">
+                <ScalarProperty Name="XVUsrCode" ColumnName="XVUsrCode" />
+                <ScalarProperty Name="XVUsrPwd" ColumnName="XVUsrPwd" />
+                <ScalarProperty Name="XVUsrName" ColumnName="XVUsrName" />
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+                <ScalarProperty Name="XVCstRol" ColumnName="XVCstRol" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSysSDistrict">
+            <EntityTypeMapping TypeName="AdAmModel.TSysSDistrict">
+              <MappingFragment StoreEntitySet="TSysSDistrict">
+                <ScalarProperty Name="XVDstCode" ColumnName="XVDstCode" />
+                <ScalarProperty Name="XVDstName" ColumnName="XVDstName" />
+                <ScalarProperty Name="XVDstNameEng" ColumnName="XVDstNameEng" />
+                <ScalarProperty Name="XVDstNameWithPrefix" ColumnName="XVDstNameWithPrefix" />
+                <ScalarProperty Name="XVDstNameEngWithPrefix" ColumnName="XVDstNameEngWithPrefix" />
+                <ScalarProperty Name="XVPvnCode" ColumnName="XVPvnCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSysSProvince">
+            <EntityTypeMapping TypeName="AdAmModel.TSysSProvince">
+              <MappingFragment StoreEntitySet="TSysSProvince">
+                <ScalarProperty Name="XVPvnCode" ColumnName="XVPvnCode" />
+                <ScalarProperty Name="XVPvnName" ColumnName="XVPvnName" />
+                <ScalarProperty Name="XVPvnNameEng" ColumnName="XVPvnNameEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSysSSubDistrict">
+            <EntityTypeMapping TypeName="AdAmModel.TSysSSubDistrict">
+              <MappingFragment StoreEntitySet="TSysSSubDistrict">
+                <ScalarProperty Name="XVSdtCode" ColumnName="XVSdtCode" />
+                <ScalarProperty Name="XVSdtName" ColumnName="XVSdtName" />
+                <ScalarProperty Name="XVSdtNameEng" ColumnName="XVSdtNameEng" />
+                <ScalarProperty Name="XVSdtNameWithPrefix" ColumnName="XVSdtNameWithPrefix" />
+                <ScalarProperty Name="XVSdtNameEngWithPrefix" ColumnName="XVSdtNameEngWithPrefix" />
+                <ScalarProperty Name="XVSdtPostCode" ColumnName="XVSdtPostCode" />
+                <ScalarProperty Name="XVDstCode" ColumnName="XVDstCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSysSConfig">
+            <EntityTypeMapping TypeName="AdAmModel.TSysSConfig">
+              <MappingFragment StoreEntitySet="TSysSConfig">
+                <ScalarProperty Name="XVSysValue" ColumnName="XVSysValue" />
+                <ScalarProperty Name="XVSysName" ColumnName="XVSysName" />
+                <ScalarProperty Name="XVSysCode" ColumnName="XVSysCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TTrnTLampUpdate">
+            <EntityTypeMapping TypeName="AdAmModel.TTrnTLampUpdate">
+              <MappingFragment StoreEntitySet="TTrnTLampUpdate">
+                <ScalarProperty Name="XIStaMode" ColumnName="XIStaMode" />
+                <ScalarProperty Name="XIStaAmLight" ColumnName="XIStaAmLight" />
+                <ScalarProperty Name="XIStaCurrent" ColumnName="XIStaCurrent" />
+                <ScalarProperty Name="XIStaSignal" ColumnName="XIStaSignal" />
+                <ScalarProperty Name="XIStaPWM2" ColumnName="XIStaPWM2" />
+                <ScalarProperty Name="XIStaPWM1" ColumnName="XIStaPWM1" />
+                <ScalarProperty Name="XIStaRelay" ColumnName="XIStaRelay" />
+                <ScalarProperty Name="XTStaUpdate" ColumnName="XTStaUpdate" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XIID" ColumnName="XIID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TTrnTWarning">
+            <EntityTypeMapping TypeName="AdAmModel.TTrnTWarning">
+              <MappingFragment StoreEntitySet="TTrnTWarning">
+                <ScalarProperty Name="XBWanIsNotify" ColumnName="XBWanIsNotify" />
+                <ScalarProperty Name="XVWanValue" ColumnName="XVWanValue" />
+                <ScalarProperty Name="XTWanTime" ColumnName="XTWanTime" />
+                <ScalarProperty Name="XVWanType" ColumnName="XVWanType" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XIID" ColumnName="XIID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_LampStatus">
+            <EntityTypeMapping TypeName="AdAmModel.V_LampStatus">
+              <MappingFragment StoreEntitySet="V_LampStatus">
+                <ScalarProperty Name="XIStaMode" ColumnName="XIStaMode" />
+                <ScalarProperty Name="XIStaAmLight" ColumnName="XIStaAmLight" />
+                <ScalarProperty Name="XIStaCurrent" ColumnName="XIStaCurrent" />
+                <ScalarProperty Name="XIStaSignal" ColumnName="XIStaSignal" />
+                <ScalarProperty Name="XIStaPWM2" ColumnName="XIStaPWM2" />
+                <ScalarProperty Name="XIStaPWM1" ColumnName="XIStaPWM1" />
+                <ScalarProperty Name="XIStaRelay" ColumnName="XIStaRelay" />
+                <ScalarProperty Name="XTStaUpdate" ColumnName="XTStaUpdate" />
+                <ScalarProperty Name="XVLmpLong" ColumnName="XVLmpLong" />
+                <ScalarProperty Name="XVLmpLat" ColumnName="XVLmpLat" />
+                <ScalarProperty Name="XVLmpSN" ColumnName="XVLmpSN" />
+                <ScalarProperty Name="XVLmpName" ColumnName="XVLmpName" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XVCtlLong" ColumnName="XVCtlLong" />
+                <ScalarProperty Name="XVCtlLat" ColumnName="XVCtlLat" />
+                <ScalarProperty Name="XVCtlSN" ColumnName="XVCtlSN" />
+                <ScalarProperty Name="XVCtlName" ColumnName="XVCtlName" />
+                <ScalarProperty Name="XVCtlCode" ColumnName="XVCtlCode" />
+                <ScalarProperty Name="XVPrjType" ColumnName="XVPrjType" />
+                <ScalarProperty Name="XVPrjName" ColumnName="XVPrjName" />
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVCstName" ColumnName="XVCstName" />
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TDocTJob">
+            <EntityTypeMapping TypeName="AdAmModel.TDocTJob">
+              <MappingFragment StoreEntitySet="TDocTJob">
+                <ScalarProperty Name="XTWhenEdit" ColumnName="XTWhenEdit" />
+                <ScalarProperty Name="XTWhenCreate" ColumnName="XTWhenCreate" />
+                <ScalarProperty Name="XVWhoEdit" ColumnName="XVWhoEdit" />
+                <ScalarProperty Name="XVWhoCreate" ColumnName="XVWhoCreate" />
+                <ScalarProperty Name="XBJobIsComplete" ColumnName="XBJobIsComplete" />
+                <ScalarProperty Name="XTJobResolveTime" ColumnName="XTJobResolveTime" />
+                <ScalarProperty Name="XVJobResolve" ColumnName="XVJobResolve" />
+                <ScalarProperty Name="XTJobProblemTime" ColumnName="XTJobProblemTime" />
+                <ScalarProperty Name="XVJobLocation" ColumnName="XVJobLocation" />
+                <ScalarProperty Name="XVJobProblem" ColumnName="XVJobProblem" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XVCtlCode" ColumnName="XVCtlCode" />
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+                <ScalarProperty Name="XVJobDocStatus" ColumnName="XVJobDocStatus" />
+                <ScalarProperty Name="XDJobDocDate" ColumnName="XDJobDocDate" />
+                <ScalarProperty Name="XVJobDocNo" ColumnName="XVJobDocNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="STP_NWLShowJobStatus" FunctionName="AdAmModel.Store.STP_NWLShowJobStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdAmModel.STP_NWLShowJobStatus_Result">
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVPrjName" ColumnName="XVPrjName" />
+                <ScalarProperty Name="XIJobComplete" ColumnName="XIJobComplete" />
+                <ScalarProperty Name="XIJobNotComplete" ColumnName="XIJobNotComplete" />
+                <ScalarProperty Name="XIJobAll" ColumnName="XIJobAll" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="STP_NWLShowOnOffStatus" FunctionName="AdAmModel.Store.STP_NWLShowOnOffStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdAmModel.STP_NWLShowOnOffStatus_Result">
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVPrjName" ColumnName="XVPrjName" />
+                <ScalarProperty Name="XVLmpCode" ColumnName="XVLmpCode" />
+                <ScalarProperty Name="XILmpStatus" ColumnName="XILmpStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="STP_NWLShowEMMStatus" FunctionName="AdAmModel.Store.STP_NWLShowEMMStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdAmModel.STP_NWLShowEMMStatus_Result">
+                <ScalarProperty Name="XVPrjCode" ColumnName="XVPrjCode" />
+                <ScalarProperty Name="XVPrjName" ColumnName="XVPrjName" />
+                <ScalarProperty Name="XVCstCode" ColumnName="XVCstCode" />
+                <ScalarProperty Name="XVCtlCode" ColumnName="XVCtlCode" />
+                <ScalarProperty Name="XVCtlSN" ColumnName="XVCtlSN" />
+                <ScalarProperty Name="XFCstCurrent" ColumnName="XFCstCurrent" />
+                <ScalarProperty Name="XFCstVoltage" ColumnName="XFCstVoltage" />
+                <ScalarProperty Name="XFCstPower" ColumnName="XFCstPower" />
+                <ScalarProperty Name="XTCstDate" ColumnName="XTCstDate" />
+                <ScalarProperty Name="XILastWait" ColumnName="XILastWait" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

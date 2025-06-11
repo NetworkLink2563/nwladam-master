@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86dc050b202a48f5b50c6a2757df1d58" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="AdAmModel.TMstMController" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TMstMCustomer" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TMstMLamp" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TMstMProject" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TMstMUser" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TSysSDistrict" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TSysSProvince" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TSysSSubDistrict" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdAmModel.TSysSConfig" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AdAmModel.TTrnTLampUpdate" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AdAmModel.TTrnTWarning" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AdAmModel.V_LampStatus" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="AdAmModel.TDocTJob" Width="1.5" PointX="10.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
